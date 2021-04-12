@@ -1,22 +1,46 @@
-<%= form_with(model: tipo_veiculo, local: true) do |form| %>
-  <% if tipo_veiculo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tipo_veiculo.errors.count, "error") %> prohibited this tipo_veiculo from being saved:</h2>
+  <div class="wrapper">
+    <div class="section features-6">
+      <div class="container">
 
-      <ul>
-      <% tipo_veiculo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <%= form_with(model: tipo_veiculo, local: true) do |form| %>
+
+        <% if tipo_veiculo.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(tipo_veiculo.errors.count, "error") %> prohibited this tipo_veiculo from being saved:</h2>
+        
+        <ul>
+        <% tipo_veiculo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+          </ul>
+          </div>
+          <% end %>
+
+	  <form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        Tipo de Veículo
+        <%= form.text_field :tipo, id: :tipo_veiculo_tipo, class: 'form-control form-control-sm', required: true, type: 'text' %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo, id: :tipo_veiculo_tipo %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+  <div class="col-md-6">
+  <div class="actions form-group">
+  <%= form.submit nil, class: 'btn btn-success' %>
+
+  <a href="/tipo_veiculos" class="btn btn-secondary">Voltar</a>
   </div>
-<% end %>
+</div>
+</div>
+</form>
+      </div>
+    </div>
+    <div class="section features-1">
+<div class="container">    
+</div>
+    </div>
+    <br /><br />
+    <% end %>

@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Vagas</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Quadra</th>
-      <th>Tipo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @vagas.each do |vaga| %>
-      <tr>
-        <td><%= vaga.quadra %></td>
-        <td><%= vaga.tipo %></td>
-        <td><%= link_to 'Show', vaga %></td>
-        <td><%= link_to 'Edit', edit_vaga_path(vaga) %></td>
-        <td><%= link_to 'Destroy', vaga, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <div class="wrapper">
+    <div class="section features-6">
+      <div class="container">
+    
+<div class="table-responsive">                   
+<table class="table table-sm">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th>Quadra</th>
+    <th>Tipo</th>
+    <th scope="col" colspan="3">Ações</th>
+  </tr>
+</thead>
+<tbody>
+<% @vagas.each do |vaga| %>
+  <tr>
+  <th scope="row"><%= vaga.id %></th>
+  <td><%= vaga.quadra %></td>
+  <td><%= vaga.tipo %></td>
+  <td><%= link_to 'Consultar', vaga %></td>
+  <td><%= link_to 'Editar', edit_vaga_path(vaga) %></td>
+  <td><%= link_to 'Excluir', vaga, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+  </tr>
+  <% end %>
+</tbody>
 </table>
+</div>
 
-<br>
+<a href="/vagas/new" class="btn btn-primary">Novo</a>
 
-<%= link_to 'New Vaga', new_vaga_path %>
+      </div>
+    </div>
+    <div class="section features-1">
+<div class="container">    
+</div>
+    </div>
+    <br /><br />

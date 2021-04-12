@@ -1,0 +1,366 @@
+<div class="card text-center">
+  <div class="card-header">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Relatórios Gerenciais</h5>
+    <p class="card-text">Escolha o relatório desejado para visualizar os indíces de desempenho do seu negócio.</p>
+   
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+    <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#RendMesModal">Rendimento por Mês</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TipoVeicModal">Qtd. Clientes x Tipo Veiculo</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RendHoraModal">Rendimento por Hora</button>
+    </div>
+
+
+  </div>
+</div>
+
+<div id="RendMesModal" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Rendimento por Mês</h4>
+      </div>
+      <div class="modal-body">
+      <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+                  <canvas class="line-chart"></canvas>
+                  </div>
+              </div>
+          </div>
+       </div>     
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="TipoVeicModal" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Qtd. Clientes x Tipo Veiculo</h4>
+      </div>
+      <div class="modal-body">
+      <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+                  <canvas class="bar-chart"></canvas>
+                  </div>
+              </div>
+          </div>
+       </div>     
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="RendHoraModal" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Rendimento por Hora</h4>
+      </div>
+      <div class="modal-body">
+      <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+                  <canvas class="radar"></canvas>
+                  </div>
+              </div>
+          </div>
+       </div>     
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+var ctx = document.getElementsByClassName("line-chart");
+
+var estadias = [
+    {
+       vaga: 16,
+       usuario:3,
+       veiculo:1,
+       cliente:1,
+       dataEntrada: 1,
+       dataSaida: 1,
+       valor: 40.63
+    },
+    {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 2,
+        dataSaida: 2,
+        valor: 12.32
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 2,
+        dataSaida: 2,
+        valor: 7.32
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 3,
+        dataSaida: 3,
+        valor: 42.12
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 4,
+        dataSaida: 4,
+        valor: 4.23
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 3,
+        dataSaida: 3,
+        valor: 5.2
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 3,
+        dataSaida: 3,
+        valor: 8.32
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 4,
+        dataSaida: 4,
+        valor: 11.33
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 5,
+        dataSaida: 5,
+        valor: 11.42
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 6,
+        dataSaida: 6,
+        valor: 55.32
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 7,
+        dataSaida: 7,
+        valor: 7.41
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 8,
+        dataSaida: 8,
+        valor: 5.41
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 9,
+        dataSaida: 9,
+        valor: 12.41
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 10,
+        dataSaida: 10,
+        valor: 44.41
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 11,
+        dataSaida: 11,
+        valor: 77.32
+     },
+     {
+        vaga: 16,
+        usuario:3,
+        veiculo:1,
+        cliente:1,
+        dataEntrada: 12,
+        dataSaida: 12,
+        valor: 88.56
+     },
+]
+
+var estadiasJan,estadiasFev,estadiasMar,estadiasAbr,estadiasMai,estadiasJun,estadiasJul;
+estadiasJan = estadias.filter(estadia => estadia.dataEntrada == 1 && estadia.dataSaida == 1).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasFev = estadias.filter(estadia => estadia.dataEntrada == 2 && estadia.dataSaida == 2).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasMar = estadias.filter(estadia => estadia.dataEntrada == 3 && estadia.dataSaida == 3).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasAbr = estadias.filter(estadia => estadia.dataEntrada == 4 && estadia.dataSaida == 4).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasMai = estadias.filter(estadia => estadia.dataEntrada == 5 && estadia.dataSaida == 5).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasJun = estadias.filter(estadia => estadia.dataEntrada == 6 && estadia.dataSaida == 6).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasJul = estadias.filter(estadia => estadia.dataEntrada == 7 && estadia.dataSaida == 7).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasAgo = estadias.filter(estadia => estadia.dataEntrada == 8 && estadia.dataSaida == 8).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasSet = estadias.filter(estadia => estadia.dataEntrada == 9 && estadia.dataSaida == 9).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasOut = estadias.filter(estadia => estadia.dataEntrada == 10 && estadia.dataSaida == 10).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasNov = estadias.filter(estadia => estadia.dataEntrada == 11 && estadia.dataSaida == 11).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+estadiasDez = estadias.filter(estadia => estadia.dataEntrada == 12 && estadia.dataSaida == 12).map(estadia=> estadia.valor).reduce((item, soma)=> item + soma);
+
+var estadiasTotal = [estadiasJan,estadiasFev,estadiasMar,estadiasAbr,estadiasMai,estadiasJun,estadiasJul, estadiasAgo, estadiasSet, estadiasOut,estadiasNov,estadiasDez]
+console.log(estadiasTotal)
+
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        datasets: [{
+            label: 'Rendimentos 2019',
+            data: estadiasTotal.map(estadia => estadia),
+            borderColor: 'rgba(77,12,253,0.85)',
+        },
+        {
+         label: 'Rendimentos 2020',
+         data: estadiasTotal.slice(0).reverse().map(estadia => estadia),
+         borderColor: 'rgba(32,12,30,0.85)',
+     }
+      ]
+    }
+});
+
+var barchart = document.getElementsByClassName("bar-chart");
+
+fetch('<%= request.base_url %>/api/dashboard/usuarios-por-tipo')
+
+   .then(data => {return data.json()})
+   .then(tipoVeiculos => {
+      entries = Object.entries(tipoVeiculos)
+      let labels = []
+      let data = []
+
+      entries.map(tipoVeic => {
+         labels.push(tipoVeic[0])
+         data.push(tipoVeic[1])
+      })
+
+      new Chart(barchart, {
+         type: 'bar',
+         data: {
+            labels: labels,
+            datasets: [{
+                  label: 'Qtde. Clientes',
+                  data: data,
+                  borderColor: 'rgba(77,12,253,0.85)',
+            }]
+         }
+      });
+   })
+
+
+   var radarchart = document.getElementsByClassName("radar");
+
+   var estadiasHora = [
+      {
+       valor: 5  
+      },
+      {
+         valor: 4  
+        },
+        {
+         valor: 2  
+        },
+        {
+         valor: 1
+        },
+        {
+         valor: 3
+        },
+        {
+         valor: 7
+        },
+        {
+         valor: 5  
+        },
+        {
+         valor: 2
+        }
+   ]
+
+   var chart = new Chart(radarchart, {
+    type: 'radar',
+    data: {
+        labels: ['08:00 - 10:00','10:00 - 12:00','12:00 - 14:00','14:00 - 16:00','16:00 - 18:00','18:00 - 20:00','20:00 - 22:00','22:00 - 00:00'],
+        datasets: [
+           {
+            label: 'Rendimentos 2019',
+            data: estadiasHora.map(estadia => estadia.valor),
+            borderColor: 'rgba(77,12,253,0.85)',
+        },
+        {
+         label: 'Rendimentos 2020',
+         data: estadiasHora.slice(0).reverse().map(estadia => estadia.valor),
+         borderColor: 'rgba(32,12,30,0.85)',
+     }
+      ]
+    }
+});
+
+
+
+
+
+</script>
+
+

@@ -5,13 +5,17 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
+gem 'cpf_faker'
+gem 'factory_bot'
+gem 'faker'
+
 group :development, :test do
   gem 'sqlite3'
 end
+
 group :production do
   gem 'pg'
 end
@@ -25,6 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # gem para instalar o boostrap no projeto
+
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 # Use CoffeeScript for .coffee assets and views

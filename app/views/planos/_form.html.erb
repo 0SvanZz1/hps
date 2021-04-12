@@ -1,32 +1,55 @@
-<%= form_with(model: plano, local: true) do |form| %>
-  <% if plano.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(plano.errors.count, "error") %> prohibited this plano from being saved:</h2>
+  <div class="wrapper">
+    <div class="section features-6">
+      <div class="container">
 
-      <ul>
-      <% plano.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <%= form_with(model: plano, local: true) do |form| %>
+        <% if plano.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(plano.errors.count, "error") %> prohibited this plano from being saved:</h2>
+      
+            <ul>
+            <% plano.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+	  <form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        Descrição
+        <%= form.text_field :descricao, id: :plano_descricao, class: 'form-control form-control-sm', type:'text', placeholder: '',required: true %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :descricao %>
-    <%= form.text_area :descricao, id: :plano_descricao %>
+    <div class="col-md-6">
+      <div class="form-group">
+	  Valor
+    <%= form.text_field :valor, id: :plano_valor, class: 'form-control form-control-sm', type:'text', placeholder: '',required: true %>
+      </div>
+    </div>
   </div>
+                          <div class="custom-control custom-checkbox mb-3">
+              <%= form.check_box :ativo, id: :convenio_ativo, class: 'form-check-input' %>
+              <%= form.label :ativo, class: 'form-check-label' %>
+              </div>
 
-  <div class="field">
-    <%= form.label :valor %>
-    <%= form.text_field :valor, id: :plano_valor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ativo %>
-    <%= form.check_box :ativo, id: :plano_ativo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+            <div class="row">
+            <div class="col-md-6">
+            <div class="actions form-group">
+            <%= form.submit nil, class: 'btn btn-success' %>
+          
+            <a href="/planos" class="btn btn-secondary">Voltar</a>
+            </div>
+          </div>
+          </div>
+</form>
+      </div>
+    </div>
+    <div class="section features-1">
+<div class="container">    
+</div>
+    </div>
+    <br /><br />
+    <% end %>

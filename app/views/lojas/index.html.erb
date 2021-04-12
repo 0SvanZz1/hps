@@ -1,0 +1,43 @@
+  <div class="wrapper">
+    <div class="section features-6">
+      <div class="container">
+    
+      
+      <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th>CNPJ</th>
+          <th>Razão</th>
+          <th>Fantasia</th>
+          <th>Estado</th>
+          <th>Cep</th>
+          <th scope="col" colspan="3">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @lojas.each do |loja| %>
+        <tr>
+        <th scope="row"><%= loja.id %></th>
+        <td><%= loja.cnpj %></td>
+        <td><%= loja.razao_social %></td>
+        <td><%= loja.fantasia %></td>
+        <td><%= loja.estado %></td>
+        <td><%= loja.cep %></td>
+        <td><%= link_to 'Consultar', loja %></td>
+        <td><%= link_to 'Editar', edit_loja_path(loja) %></td>
+        <td><%= link_to 'Excluir', loja, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+      </table>
+      
+      <a href="/lojas/new" class="btn btn-primary">Novo</a>
+
+      </div>
+    </div>
+    <div class="section features-1">
+<div class="container">    
+</div>
+    </div>
+    <br /><br />

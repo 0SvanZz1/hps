@@ -1,0 +1,58 @@
+  <div class="wrapper">
+    <div class="section features-6">
+      <div class="container">
+
+      <%= form_with(model: usuario, local: true) do |form| %>
+        <% if usuario.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+      
+            <ul>
+            <% usuario.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+	  <form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        Nome
+        <%= form.text_field :nome, id: :usuario_nome, class: 'form-control form-control-sm', required: true, type: 'text' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+	  Senha
+    <%= form.text_field :senha, id: :usuario_senha, class: 'form-control form-control-sm', required: true, type: 'password' %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="form-group">
+  CodCargo
+  <%= form.text_field :cargos_codcargo, id: :usuario_cargos_codcargo, class: 'form-control form-control-sm', required: true, type: 'text' %>
+    </div>
+  </div>
+  </div>
+
+            <div class="row">
+            <div class="col-md-6">
+            <div class="actions form-group">
+            <%= form.submit nil, class: 'btn btn-success' %>
+          
+            <a href="/usuarios" class="btn btn-secondary">Voltar</a>
+            </div>
+          </div>
+          </div>
+</form>
+      </div>
+    </div>
+    <div class="section features-1">
+<div class="container">    
+</div>
+    </div>
+    <br /><br />
+    <% end %>

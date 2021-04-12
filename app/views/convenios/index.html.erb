@@ -1,43 +1,46 @@
-<p id="notice"><%= notice %></p>
+  <div class="wrapper">
+  <div class="section features-6">
+    <div class="container">
 
-<h1>Convenios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Cnpj</th>
-      <th>Razao social</th>
-      <th>Fantasia</th>
-      <th>Estado</th>
-      <th>Cep</th>
-      <th>Fone1</th>
-      <th>Fone2</th>
-      <th>Email</th>
-      <th>Ativo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @convenios.each do |convenio| %>
-      <tr>
-        <td><%= convenio.cnpj %></td>
-        <td><%= convenio.razao_social %></td>
-        <td><%= convenio.fantasia %></td>
-        <td><%= convenio.estado %></td>
-        <td><%= convenio.cep %></td>
-        <td><%= convenio.fone1 %></td>
-        <td><%= convenio.fone2 %></td>
-        <td><%= convenio.email %></td>
-        <td><%= convenio.ativo %></td>
-        <td><%= link_to 'Show', convenio %></td>
-        <td><%= link_to 'Edit', edit_convenio_path(convenio) %></td>
-        <td><%= link_to 'Destroy', convenio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<div class="table-responsive">   
+<table class="table table-sm">
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th>CNPJ</th>
+    <th>Razão</th>
+    <th>Fantasia</th>
+    <th>Estado</th>
+    <th>Ativo</th>
+    <th scope="col">Email</th>
+    <th scope="col" colspan="3">Ações</th>
+  </tr>
+</thead>
+<tbody>
+<% @convenios.each do |convenio| %>
+  <tr>
+  <th scope="row"><%= convenio.id %></th>
+  <td><%= convenio.cnpj %></td>
+  <td><%= convenio.razao_social %></td>
+  <td><%= convenio.fantasia %></td>
+  <td><%= convenio.estado %></td>
+  <td><%= convenio.ativo %></td>
+  <td><%= convenio.email %></td>
+  <td><%= link_to 'Consultar', convenio %></td>
+  <td><%= link_to 'Editar', edit_convenio_path(convenio) %></td>
+  <td><%= link_to 'Excluir', convenio, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+  </tr>
+  <% end %>
+</tbody>
 </table>
+</div>
+<a href="/convenios/new" class="btn btn-primary">Novo</a>
 
-<br>
 
-<%= link_to 'New Convenio', new_convenio_path %>
+    </div>
+  </div>
+  <div class="section features-1">
+<div class="container">    
+</div>
+  </div>
+  <br /><br />

@@ -1,27 +1,52 @@
-<%= form_with(model: vaga, local: true) do |form| %>
-  <% if vaga.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vaga.errors.count, "error") %> prohibited this vaga from being saved:</h2>
+  <div class="wrapper">
+    <div class="section features-6">
+      <div class="container">
 
-      <ul>
-      <% vaga.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <%= form_with(model: vaga, local: true) do |form| %>
+        <% if vaga.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(vaga.errors.count, "error") %> prohibited this vaga from being saved:</h2>
+      
+            <ul>
+            <% vaga.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+	  	  <form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        Quadra
+        <%= form.text_field :quadra, id: :vaga_quadra, class: 'form-control form-control-sm', required: true, type: 'text' %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :quadra %>
-    <%= form.text_field :quadra, id: :vaga_quadra %>
+    <div class="col-md-6">
+      <div class="form-group">
+	  Tipo
+    <%= form.text_field :tipo, id: :vaga_tipo, class: 'form-control form-control-sm', required: true, type: 'text' %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo, id: :vaga_tipo %>
-  </div>
+  <div class="row">
+  <div class="col-md-6">
+  <div class="actions form-group">
+  <%= form.submit nil, class: 'btn btn-success' %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <a href="/vagas" class="btn btn-secondary">Voltar</a>
   </div>
-<% end %>
+</div>
+</div>
+
+</form>
+      </div>
+    </div>
+    <div class="section features-1">
+<div class="container">    
+</div>
+    </div>
+    <br /><br />
+    <% end %>

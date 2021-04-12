@@ -1,0 +1,72 @@
+  <div class="wrapper">
+    <div class="section features-6">
+      <div class="container">
+
+      <%= form_with(model: loja, local: true) do |form| %>
+        <% if loja.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(loja.errors.count, "error") %> prohibited this loja from being saved:</h2>
+      
+            <ul>
+            <% loja.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+	  <form>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        CNPJ
+        <%= form.text_field :cnpj, id: :loja_cnpj, class: 'form-control form-control-sm', required: true, type: 'text', placeholder: 'Ex: 30.252.544/0001-01' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+	  Razão Social
+    <%= form.text_field :razao_social, id: :loja_razao_social, class: 'form-control form-control-sm', required: true, type: 'text' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        Fantasia
+        <%= form.text_field :fantasia, id: :loja_fantasia, class: 'form-control form-control-sm', required: true, type: 'text' %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+	  Estado
+    <%= form.text_field :estado, id: :loja_estado, class: 'form-control form-control-sm', required: true, type: 'text' %>
+      </div>
+    </div>
+	      <div class="col-md-3">
+      <div class="form-group">
+        CEP
+        <%= form.text_field :cep, id: :loja_cep, class: 'form-control form-control-sm', required: true, type: 'text', placeholder: 'Ex: 35661-660 ' %>
+      </div>
+    </div>
+  </div>
+
+            <div class="row">
+            <div class="col-md-6">
+            <div class="actions form-group">
+            <%= form.submit nil, class: 'btn btn-success' %>
+          
+            <a href="/lojas" class="btn btn-secondary">Voltar</a>
+            </div>
+          </div>
+          </div>
+</form>
+
+      </div>
+    </div>
+    <div class="section features-1">
+<div class="container">    
+</div>
+    </div>
+    <br /><br />
+    <% end %>
